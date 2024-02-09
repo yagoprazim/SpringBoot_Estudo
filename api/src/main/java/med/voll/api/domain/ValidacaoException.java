@@ -1,8 +1,16 @@
 package med.voll.api.domain;
 
-public class ValidacaoException extends RuntimeException{
+import org.springframework.http.HttpStatus;
 
-    public ValidacaoException(String mensagem) {
-        super(mensagem);
+public class ValidacaoException extends RuntimeException{
+    private HttpStatus status;
+
+    public ValidacaoException(String message, HttpStatus status) {
+        super(message);
+        this.status = status;
+    }
+
+    public HttpStatus getStatus() {
+        return status;
     }
 }
